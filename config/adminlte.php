@@ -269,6 +269,12 @@ return [
             'icon'        => 'fa fa-graduation-cap fa-fw',
             'can'         => 'listFacultad',
         ],
+        [
+            'text'        => 'Escuelas',
+            'route'       => 'listEscuela',
+            'icon'        => 'fa fa-graduation-cap fa-fw',
+            'can'         => 'listFacultad',
+        ],
     ],
 
     /*
