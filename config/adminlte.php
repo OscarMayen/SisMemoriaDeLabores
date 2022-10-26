@@ -257,12 +257,23 @@ return [
             'icon'        => 'fas fa-users fa-fw',
             'can'         => 'admin.usuarios.index',
         ],
-
         [
             'text'        => 'Roles',
             'route'       => 'admin.roles.index',
             'icon'        => 'fas fa-users-cog fa-fw',
             'can'         => 'admin.roles.index',
+        ],
+        [
+            'text'        => 'Facultades',
+            'route'       => 'listFacultad',
+            'icon'        => 'fa fa-graduation-cap fa-fw',
+            'can'         => 'listFacultad',
+        ],
+        [
+            'text'        => 'Escuelas',
+            'route'       => 'listEscuela',
+            'icon'        => 'fa fa-graduation-cap fa-fw',
+            'can'         => 'listFacultad',
         ],
     ],
 
