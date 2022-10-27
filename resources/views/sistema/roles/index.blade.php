@@ -3,8 +3,9 @@
 @section('title','Home')
 
 @section('content_header')
-<a href="{{ route ('admin.roles.create' ) }}" class="btn btn-sm btn-secondary float-right">Crear Rol</a>
+
 <h1>Lista de Roles</h1>
+<a href="{{ route ('admin.roles.create' ) }}" class="btn btn-success">Crear Rol</a>
 @stop
     
 @section('content')
