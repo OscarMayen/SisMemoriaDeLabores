@@ -13,6 +13,7 @@
             <table class="table table-bordered table-stripied text-center">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Codigo</th>
                         <th>Nombre</th>
                         <th>Facultad</th>
@@ -23,15 +24,17 @@
                     @foreach ($escuela as $datos)
                     <tr>
                         <td>{{ $datos->pk_escuela }}</td>
+                        <td>{{ $datos->codigo}}</td>
                         <td>{{ $datos->nombreescuela }}</td>
-                        <th>{{ $datos->pk_facultad }}</th>
+                        <th>{{ $datos->fk_facultad }}</th>
                         <td width='10px'>
-                            <a href="" class="btn btn-primary md-1">
+                            <a href="{{ route('editFormEscuela', $datos->pk_escuela) }}" class="btn btn-primary md-1">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                         </td>
                         <td width='10px'>
-                            <form action="" class="eliminarRegistro">
+                            <form action="{{ route('deleteEscuela', $datos->pk_escuela) }}" method="POST" class="eliminarRegistro">
+                                @csrf @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
@@ -70,7 +73,7 @@
     e.preventDefault();
     Swal.fire({
       title: '¿Estás seguro?',
-      text: "Esta facultad será eliminado permanentemente",
+      text: "Esta Escuela será eliminado permanentemente",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

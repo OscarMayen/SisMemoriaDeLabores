@@ -41,3 +41,7 @@ Route::patch('editarFacultad/{id}','FacultadController@editarFacultad')->name('e
 Route::get('guardarFormEscuela', 'EscuelaController@verFormEscuela')->name('formEscuela');
 Route::post('saveEscuela', 'EscuelaController@guardarEscuela')->name('saveEscuela');
 Route::get('listarEscuela', 'EscuelaController@mostrarEscuelas')->name('listEscuela');
+Route::delete('eliminarEscuela/{id}','EscuelaController@eliminarEscuela')->name('deleteEscuela');
+Route::get('editarFormEscuela/{id}','EscuelaController@actualizarEscuela')->name('editFormEscuela');
+Route::patch('editarEscuela/{id}','EscuelaController@editarEscuela')->name('editEscuela');
+ 

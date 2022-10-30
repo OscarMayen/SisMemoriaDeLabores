@@ -8,7 +8,7 @@ class Facultad extends Model
 {
     protected $table = 'facultad';
     protected $primaryKey = 'pk_facultad';
-    protected $keyType = 'string';
+    protected $fillable = ['codigo', 'nombrefacultad'];
     public $timestamps = false;
 
     //Relacion de uno a muchos

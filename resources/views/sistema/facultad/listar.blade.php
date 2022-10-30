@@ -13,6 +13,7 @@
             <table class="table table-bordered table-stripied text-center">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Codigo</th>
                         <th>Nombre</th>
                         <th colspan="2">Acciones</th>
@@ -22,9 +23,10 @@
                     @foreach ($facultad as $datos)
                     <tr>
                         <td>{{ $datos->pk_facultad }}</td>
+                        <td>{{ $datos->codigo }}</td>
                         <td>{{ $datos->nombrefacultad }}</td>
                         <td width='10px'>
-                            <a href="{{ route ('editFormFacultad', $datos->pk_facultad) }}" class="btn btn-primary md-1">
+                            <a href="{{ route('editFormFacultad', $datos->pk_facultad) }}" class="btn btn-primary md-1">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                         </td>

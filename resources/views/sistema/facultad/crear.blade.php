@@ -30,8 +30,8 @@
                     <div class="card-header text-center">CREAR FACULTAD</div>
                     <div class="card-body">
                         <div class="row form-group">
-                            <label for="" class="col-2">ID</label>
-                            <input type="text" name="pk_facultad" class="form-control col-md-9">
+                            <label for="" class="col-2">Codigo</label>
+                            <input type="text" name="codigo" class="form-control col-md-9">
                         </div>
                         <div class="row form-group">
                             <label for="" class="col-2">Nombre</label>

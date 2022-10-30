@@ -29,21 +29,17 @@
                 @csrf
                     <div class="card-header text-center">Crear nueva Escuela</div>
                     <div class="card-body">
-                        <div class="row form-group">
-                            <label for="" class="col-2">ID escuela</label>
-                            <input type="text" name="pk_escuela" class="form-control col-md-9">
-                        </div>
 
                         <div class="form-group">
                             <label for="" class="col-2">Facultad</label>
-                            <select name="pk_facultad"
+                            <select name="fk_facultad"
                                     class="form-control"
-                                    id="id">
+                                    id="facultad">
                             <option value="">-- Seleccione --</option>
-                            @foreach ($facultades as $id => $nombrefacultad)
-                                <option value="{{ $id }}" 
-                                {{ old('nombrefacultad') == $id ? 'selected' : '' }} >
-                                    {{ $nombrefacultad }}
+                            @foreach ($facultades as $facultad)
+                                <option value="{{ $facultad->pk_facultad }}" 
+                                {{ old('facultad') == $facultad->pk_facultad ? 'selected' : '' }}>
+                                    {{ $facultad->nombrefacultad }}
                                 </option>
                             @endforeach
                             </select>

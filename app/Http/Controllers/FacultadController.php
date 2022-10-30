@@ -13,18 +13,17 @@ class FacultadController extends Controller
         $this->middleware('can:formFacultad')->only('verFormFacultad', 'guardarFacultad');
     }
 
-    //formulario de profesiones
+    //formulario de facultad
     public function verFormFacultad(){
         return View('sistema/facultad/crear');
     }
 
-    //Guardar Profesiones
+    //Guardar facultad
     public function guardarFacultad(Request $request){
        
         $validator = $this->validate($request,[
-            'pk_facultad'=>'required|string|max:10',
+            'codigo'=>'required|string|max:15|unique:facultad,codigo',
             'nombrefacultad'=>'required|string|max:50',
-            //'estado'=>'required|int'
         ]);
         
         $datos = request()->except('_token');
