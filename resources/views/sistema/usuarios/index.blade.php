@@ -3,8 +3,9 @@
 @section('title','Home')
     
 @section('content_header')
-    <a href="{{ route ('admin.usuarios.create') }}" class="btn btn-sm btn-secondary float-right">Crear Usuario</a>
+   
     <h1>Lista de usuarios</h1>
+    <a href="{{ route ('admin.usuarios.create') }}" class="btn btn-success">Crear Usuario</a>
 @stop
 
 @section('content')

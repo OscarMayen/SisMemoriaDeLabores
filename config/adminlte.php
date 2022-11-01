@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Memoria</b>Labores',
+    'logo' => '<b>Memoria de labores</b>',
     'logo_img' => 'vendor/adminlte/dist/img/UESlogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'layout_topnav' => null,
+    'layout_topnav' => true,
     'layout_boxed' => null,
     'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => true,
@@ -226,11 +226,7 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
+      
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,

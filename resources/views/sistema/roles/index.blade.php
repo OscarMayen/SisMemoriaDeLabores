@@ -3,8 +3,11 @@
 @section('title','Home')
 
 @section('content_header')
-<a href="{{ route ('admin.roles.create' ) }}" class="btn btn-sm btn-secondary float-right">Crear Rol</a>
-<h1>Lista de Roles</h1>
+
+<h1 class="text-center mb-5">Lista de Roles</h1>
+
+<a href="{{ route ('admin.roles.create' ) }}" class="btn btn-success">Crear Rol</a>
+
 @stop
     
 @section('content')
@@ -16,6 +19,7 @@
     @endif
 
 <div class="card">
+    
     <div class="card-body">
         <table class="table table-striped">
             <thead>
@@ -33,13 +37,17 @@
                         <td>{{ $role->id }}</td>
                         <td>{{ $role->name }}</td>
                         <td width='10px'>
-                            <a href="{{ route ('admin.roles.edit', $role->id ) }}" class="btn btn-sm btn-primary">Editar</a>
+                            <a href="{{ route ('admin.roles.edit', $role->id ) }}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-pencil-alt"></i>
+                            </a>
                         </td>
                         <td width='10px'>
                             <form action="{{ route('admin.roles.destroy', $role ) }}" method="POST"> 
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger" >Eliminar</button>
+                                <button type="submit" class="btn btn-sm btn-danger" >
+                                <i class="fas fa-trash-alt"></i>
+                                </button>
                             </form>
                         </td>
                     </tr>
