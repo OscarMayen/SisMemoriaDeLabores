@@ -38,7 +38,8 @@
                             <label for="password" class="col-md-3 col-form-label text-md-right"></label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password"  placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            
+                                <input id="password" type="password"  placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" class="fa-sharp fa-solid fa-eye"> 
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
