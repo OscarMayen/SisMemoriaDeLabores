@@ -241,7 +241,7 @@ return [
         [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
-        ],  
+        ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -249,7 +249,7 @@ return [
         ],
 
         ['header' => 'CONFIGURACIÓN DE SISTEMA',
-         'can'  => 'admin.usuarios.index',   
+         'can'  => 'admin.usuarios.index',
         ],
         [
             'text'        => 'Usuarios',
@@ -274,6 +274,20 @@ return [
             'route'       => 'listEscuela',
             'icon'        => 'fa fa-graduation-cap fa-fw',
             'can'         => 'listFacultad',
+        ],
+
+        [
+            'text'        => 'Tipo',
+            'route'       => 'tipoActividad.index',
+            'icon'        => 'fas fa-users-cog fa-fw',
+            'can'         => 'tipoActividad.index',
+        ],
+
+        [
+            'text'        => 'Actividades',
+            'route'       => 'actividad.index',
+            'icon'        => 'fas fa-users-cog fa-fw',
+            'can'         => 'actividad.index',
         ],
     ],
 

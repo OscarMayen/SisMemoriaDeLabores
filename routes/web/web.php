@@ -28,7 +28,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::resource('/usuarios', UsuarioController::class)->middleware('can:admin.usuarios')->names('admin.usuarios');
 Route::resource('usuarios', UsuarioController::class)->names('admin.usuarios');
 Route::resource('roles', RoleController::class)->names('admin.roles');
-
+Route::resource('tipoActividad', 'TipoActividadController')->names('tipoActividad');
+Route::resource('actividad', 'ActividadController')->names('actividad');
 //Facultad
 Route::get('guardarFormFacultad', 'FacultadController@verFormFacultad')->name('formFacultad');
 Route::post('saveFacultad', 'FacultadController@guardarFacultad')->name('saveFacultad');
