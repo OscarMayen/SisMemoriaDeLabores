@@ -76,12 +76,15 @@
 
                         <div class="form-group">
                             <label for="contenido" class="col-2">Contenido</label>
-                            <input type="text"
+                            <input type="hidden"
                                 name="contenido"
-                                class="form-control col-md-6 @error('contenido') is-invalid @enderror"
                                 id="contenido"
                                 value={{ old('contenido') }}
                              >
+                             <trix-editor
+                                class="form-control @error('contenido') is-invalid @enderror"
+                                 input="contenido"></trix-editor>
+
                              @error('contenido')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>

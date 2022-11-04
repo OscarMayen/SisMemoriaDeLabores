@@ -89,17 +89,21 @@
 
                         <div class="form-group">
                             <label for="contenido" class="col-2">Contenido</label>
-                            <input type="text"
+                            <input type="hidden"
                                 name="contenido"
-                                class="form-control col-md-6 @error('contenido') is-invalid @enderror"
-                                value="{{$actividad->contenido}}"
-                            >
-                            @error('contenido')
+                                id="contenido"
+                                value={{ $actividad->contenido }}
+                             >
+                             <trix-editor
+                                class="form-control @error('contenido') is-invalid @enderror"
+                                 input="contenido"></trix-editor>
+
+                             @error('contenido')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 <br>
-                            @enderror
+                             @enderror
                         </div>
 
                         <div class=" form-group">
