@@ -26,7 +26,20 @@
                         <th colspan="2">Acciones</th>
                     </tr>
                 </thead>
-
+                <tbody>
+                    @foreach ($actividades as $actividad)
+                    <tr>
+                        <td>{{ $actividad->id}}</td>
+                        <td>{{ $actividad->titulo}}</td>
+                        <td>{{ $actividad->fechaActividad}}</td>
+                        <td width='10px'>
+                            <a href="{{ route ('actividad.edit', $actividad->id) }}" class="btn btn-primary md-1">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
     </div>

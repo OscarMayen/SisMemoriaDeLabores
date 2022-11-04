@@ -17,37 +17,49 @@
                 </div>
             @endif
 
-            <!--Validación de errores-->
-            @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{$errors}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
             <div class="card">
-                <form method="POST">
+                <form action="{{route('actividad.store')}}" method="POST">
                 @csrf
                     <div class="card-header text-center">Nueva Actividad</div>
                     <div class="card-body">
                         <div class="row form-group">
                             <label for="titulo" class="col-2">Titulo</label>
-                            <input type="text" name="titulo" class="form-control col-md-6">
+                            <input type="text"
+                                name="titulo"
+                                class="form-control col-md-6 @error('titulo') is-invalid @enderror"
+                                id="titulo"
+                                value={{ old('titulo') }}
+                            >
+
+                            @error('titulo')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                <br>
+                            @enderror
                         </div>
 
                         <div class="row form-group">
-                            <label for="" class="col-2">Fecha de actividad</label>
-                            <input type="text" name="fecha" class="form-control col-md-6">
+                            <label for="fechaActividad" class="col-2">Fecha de actividad</label>
+                            <input type="text"
+                                name="fechaActividad"
+                                class="form-control col-md-6 @error('fechaActividad') is-invalid @enderror"
+                                id="fechaActividad"
+                                value={{ old('fechaActividad') }}
+                            >
+                            @error('fechaActividad')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                <br>
+                            @enderror
                         </div>
 
                         <div class="form-group">
-                            <label for="tipoActividad" class="col-2">Tipo de actividad</label>
+                            <label for="tipoActividad_id" class="col-2">Tipo de actividad</label>
                             <select name="tipoActividad_id"
                                     class="form-control col-md-6"
-                                    id="tipoActividad">
+                                    id="tipoActividad_id">
                                 <option value="">-- Seleccione --</option>
                                 @foreach ($tiposActividad as $id => $nombre )
                                 <option value="{{ $id }}"> {{ $nombre }} </option>
@@ -55,12 +67,28 @@
                             </select>
                         </div>
 
+                        @error('tipoActividad_id')
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            <br>
+                        @enderror
+
                         <div class="form-group">
                             <label for="contenido" class="col-2">Contenido</label>
-                            <input type="hidden" name="contenido" class="form-control col-md-6">
-                            <trix-editor input="contenido"></trix-editor>
+                            <input type="text"
+                                name="contenido"
+                                class="form-control col-md-6 @error('contenido') is-invalid @enderror"
+                                id="contenido"
+                                value={{ old('contenido') }}
+                             >
+                             @error('contenido')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                <br>
+                             @enderror
                         </div>
-
                         <div class=" form-group">
                             <button type="submit" class="btn btn-success col-md-3 ">Guardar</button>
                         </div>
