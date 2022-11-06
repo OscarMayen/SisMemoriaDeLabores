@@ -2,7 +2,7 @@
 
 @section('title','Lista de Escuelas')
 @section('content_header')
-    <h2 class="text-center mb-5">Escuelas de la facultad </h2>
+    <h2 class="text-center mb-5">Escuelas </h2>
 @endsection
 
 @section('content')
@@ -21,19 +21,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($escuela as $datos)
+                    @foreach ($datos as $dato)
                     <tr>
-                        <td>{{ $datos->pk_escuela }}</td>
-                        <td>{{ $datos->codigo}}</td>
-                        <td>{{ $datos->nombreescuela }}</td>
-                        <th>{{ $datos->fk_facultad }}</th>
+                        <td>{{ $dato->pk_escuela }}</td>
+                        <td>{{ $dato->codigo }}</td>
+                        <td>{{ $dato->nombreEscuela }}</td>
+                        <th>{{ $dato->fk_facultad}}</th>
                         <td width='10px'>
-                            <a href="{{ route('editFormEscuela', $datos->pk_escuela) }}" class="btn btn-primary md-1">
+                            <a href="{{ route('editFormEscuela', $dato->pk_escuela) }}" class="btn btn-primary md-1">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
                         </td>
                         <td width='10px'>
-                            <form action="{{ route('deleteEscuela', $datos->pk_escuela) }}" method="POST" class="eliminarRegistro">
+                            <form action="{{ route('deleteEscuela', $dato->pk_escuela) }}" method="POST" class="eliminarRegistro">
                                 @csrf @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
                                     <i class="fas fa-trash-alt"></i>
@@ -44,7 +44,6 @@
                     @endforeach
                 </tbody>
             </table>
-            {{ $escuela->links() }}
         </div>
     </div>
 </div>

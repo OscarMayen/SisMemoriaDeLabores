@@ -38,7 +38,7 @@
                             <option value="">-- Seleccione --</option>
                             @foreach ($facultades as $facultad)
                                 <option value="{{ $facultad->pk_facultad }}" {{ $escuela->fk_facultad == $facultad->pk_facultad ? 'selected' : '' }}>
-                                    {{ $facultad->nombrefacultad }}
+                                    {{ $facultad->nombreFacultad }}
                                 </option>
                             @endforeach
                             </select>
@@ -51,8 +51,8 @@
                         </div>
                         <div class="row form-group">
                             <label for="" class="col-2">nombre</label>
-                            <input type="text" name="nombreescuela" class="form-control col-md-9" 
-                            value="{{ $escuela->nombreescuela }}">
+                            <input type="text" name="nombreEscuela" class="form-control col-md-9" 
+                            value="{{ $escuela->nombreEscuela }}">
                         </div>
                         <div class="row form-group">
                             <button type="submit" class="btn btn-success col-md-9 offset-2">Guardar</button>

@@ -36,8 +36,8 @@
                         </div>
                         <div class="row form-group">
                             <label for="" class="col-2">Nombre</label>
-                            <input type="text" name="nombrefacultad" class="form-control col-md-9" 
-                            value="{{ $facultad->nombrefacultad }}">
+                            <input type="text" name="nombreFacultad" class="form-control col-md-9" 
+                            value="{{ $facultad->nombreFacultad }}">
                         </div>
                         <div class="row form-group">
                             <button type="submit" class="btn btn-success col-md-9 offset-2">Modificar</button>

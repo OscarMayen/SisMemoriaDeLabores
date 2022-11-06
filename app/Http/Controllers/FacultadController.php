@@ -23,7 +23,7 @@ class FacultadController extends Controller
        
         $validator = $this->validate($request,[
             'codigo'=>'required|string|max:15|unique:facultad,codigo',
-            'nombrefacultad'=>'required|string|max:50',
+            'nombreFacultad'=>'required|string|max:50',
         ]);
         
         $datos = request()->except('_token');

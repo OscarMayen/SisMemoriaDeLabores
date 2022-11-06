@@ -24,7 +24,7 @@
                     <tr>
                         <td>{{ $datos->pk_facultad }}</td>
                         <td>{{ $datos->codigo }}</td>
-                        <td>{{ $datos->nombrefacultad }}</td>
+                        <td>{{ $datos->nombreFacultad }}</td>
                         <td width='10px'>
                             <a href="{{ route('editFormFacultad', $datos->pk_facultad) }}" class="btn btn-primary md-1">
                                 <i class="fas fa-pencil-alt"></i>

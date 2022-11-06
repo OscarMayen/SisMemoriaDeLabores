@@ -14,7 +14,7 @@
             @endif
 
             <!--Validación de errores-->
-            @if($errors->any())
+            <!-- @if($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -22,21 +22,42 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
+            @endif -->
 
             <div class="card">
-                <form action="{{ route('saveFacultad')}}" method="POST">
+                <form action="{{ route('saveFacultad')}}" method="POST" novalidate>
                 @csrf
                     <div class="card-header text-center">CREAR FACULTAD</div>
                     <div class="card-body">
+
                         <div class="row form-group">
                             <label for="" class="col-2">Codigo</label>
-                            <input type="text" name="codigo" class="form-control col-md-9">
+                            <input  type="text" 
+                                    name="codigo" 
+                                    class="form-control col-md-9 @error('codigo') is-invalid @enderror" 
+                                    id="codigo"
+                                    value={{ old('titulo') }}>
+                            @error('codigo')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{$message}}</strong>
+                                </span>
+                            @enderror
                         </div>
+
                         <div class="row form-group">
                             <label for="" class="col-2">Nombre</label>
-                            <input type="text" name="nombrefacultad" class="form-control col-md-9">
+                            <input  type="text" 
+                                    name="nombreFacultad" 
+                                    class="form-control col-md-9 @error('nombreFacultad') is-invalid @enderror" 
+                                    id="nombre"
+                                    value={{ old('nombreFacultad') }}>
+                            @error('nombreFacultad')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{$message}}</strong>
+                                </span>
+                            @enderror
                         </div>
+
                         <div class="row form-group">
                             <button type="submit" class="btn btn-success col-md-9 offset-2">Guardar</button>
                         </div>

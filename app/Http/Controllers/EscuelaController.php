@@ -16,7 +16,7 @@ class EscuelaController extends Controller
 
     //formulario de Escuelas
     public function verFormEscuela(){
-        $facultades = Facultad::all(['nombrefacultad','pk_facultad']);
+        $facultades = Facultad::all(['pk_facultad','nombreFacultad']);  //Traer listado de facultades por medio del modelo
 
         return View('sistema/escuela/crear')->with('facultades', $facultades);
     }
@@ -27,7 +27,7 @@ class EscuelaController extends Controller
         $validator = $this->validate($request,[
             'fk_facultad'=>'required|string|max:10',
             'codigo'=>'required|string|max:10',
-            'nombreescuela'=>'required|string|max:50',
+            'nombreEscuela'=>'required|string|max:50',
         ]);
         
         $datos = request()->except('_token');
@@ -38,9 +38,12 @@ class EscuelaController extends Controller
 
     //funcion para mostrar todas las escuelas
     public function mostrarEscuelas(){
-        $datos['escuela'] = Escuela::paginate(5);
-        
-        return View('sistema/escuela/listar', $datos);
+
+        //$datos['escuela'] = Escuela::paginate(5);
+        $datos = Escuela::orderBy('pk_escuela', 'Asc')->paginate(5);
+
+        //return View('sistema/escuela/listar', $datos);
+        return view('sistema.escuela.listar', compact('datos'));
     }
 
     //funcion para eliminar Escuela(no se deberia hacer)
@@ -53,7 +56,7 @@ class EscuelaController extends Controller
     //funcion para Editar Escuela
     public function actualizarEscuela($pk_escuela){
         $escuela = Escuela::findOrFail($pk_escuela);
-        $facultades = Facultad::all(['nombrefacultad','pk_facultad']);
+        $facultades = Facultad::all(['nombreFacultad','pk_facultad']);
 
         return view('sistema/escuela/editar', compact('escuela', 'facultades', $facultades));
     }
