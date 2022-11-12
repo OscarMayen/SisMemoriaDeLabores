@@ -26,7 +26,9 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td width='10px'>
-                                        <a class="btn btn-primary" href="{{ route('admin.usuarios.edit', $user) }}">Editar</a>
+                                        <a class="btn btn-primary" href="{{ route('admin.usuarios.edit', $user) }}">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

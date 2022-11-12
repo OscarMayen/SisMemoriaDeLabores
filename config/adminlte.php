@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'layout_topnav' => true,
+    'layout_topnav' => null,
     'layout_boxed' => null,
     'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => true,
@@ -271,14 +271,18 @@ return [
             'icon'        => 'fa fa-graduation-cap fa-fw',
             'can'         => 'listFacultad',
         ],
-
         [
-            'text'        => 'Tipo',
+            'text'        => 'Tipo de actividades',
             'route'       => 'tipoActividad.index',
             'icon'        => 'fas fa-users-cog fa-fw',
             'can'         => 'tipoActividad.index',
         ],
 
+
+        ['header' => 'REGISTRO DE LOGROS',
+       ],
+
+    
         [
             'text'        => 'Actividades',
             'route'       => 'actividad.index',
