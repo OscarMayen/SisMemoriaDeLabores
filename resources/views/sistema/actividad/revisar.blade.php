@@ -18,19 +18,27 @@
             @endif
 
             <div class="card">
-                <form action="{{route('actividad.store')}}" method="POST" enctype="multipart/form-data">
-                @csrf
+                <form action="{{route('actividad.update', $actividad->id)}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                     <div class="card-header text-center">Nueva Actividad</div>
                     <div class="card-body">
+                        <div class="row form-group">
+                            <label for="id" class="col-2">ID</label>
+                            <input type="text"
+                                name="id"
+                                value="{{$actividad->id}}"
+                                class="form-control col-md-6" readonly>
+                        </div>
+
                         <div class="row form-group">
                             <label for="titulo" class="col-2">Titulo</label>
                             <input type="text"
                                 name="titulo"
                                 class="form-control col-md-6 @error('titulo') is-invalid @enderror"
                                 id="titulo"
-                                value={{ old('titulo') }}
+                                value="{{$actividad->titulo}}"
                             >
-
                             @error('titulo')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -44,25 +52,30 @@
                             <input type="text"
                                 name="fechaActividad"
                                 class="form-control col-md-6 @error('fechaActividad') is-invalid @enderror"
-                                id="fechaActividad"
-                                value={{ old('fechaActividad') }}
+                                value="{{$actividad->fechaActividad}}"
                             >
-                            @error('fechaActividad')
+                            @error('titulo')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                                <br>
-                            @enderror
+                            <br>
+                        @enderror
+
                         </div>
 
                         <div class="form-group">
                             <label for="tipoActividad_id" class="col-2">Tipo de actividad</label>
+
                             <select name="tipoActividad_id"
                                     class="form-control col-md-6"
                                     id="tipoActividad_id">
                                 <option value="">-- Seleccione --</option>
-                                @foreach ($tiposActividad as $id => $nombre )
-                                <option value="{{ $id }}"> {{ $nombre }} </option>
+
+                                @foreach ($tiposActividad as $tipo )
+                                    <option
+                                    value="{{ $tipo->id }}"
+                                    {{ $actividad->tipoActividad_id == $tipo->id ? 'selected' : '' }}
+                                    > {{ $tipo->nombre }} </option>
                                 @endforeach
                             </select>
                         </div>
@@ -79,11 +92,9 @@
                             <input type="hidden"
                                 name="contenido"
                                 id="contenido"
-                                value={{ old('contenido') }}
+                                value={{ $actividad->contenido }}
                              >
-
-                             <!-- style="height: 400px" -->
-                             <trix-editor
+                             <trix-editor style="height: 400px"
                                 class="form-control @error('contenido') is-invalid @enderror"
                                  input="contenido"></trix-editor>
 
@@ -95,9 +106,9 @@
                              @enderror
                         </div>
 
-                        <!--Para ver la imagen seleccionada  -->
-                        <div class="form-group">
-                            <img id="imagenSeleccionada" style="max-height: 300px">
+                         <!--Para ver la imagen seleccionada  -->
+                         <div class="form-group">
+                            <img src="/imagen/{{ $actividad->imagen}}" width="200px" id="imagenSeleccionada">
                         </div>
 
                         <div class="form-group">
@@ -131,4 +142,5 @@
             } );
         });
     </script>
+
 

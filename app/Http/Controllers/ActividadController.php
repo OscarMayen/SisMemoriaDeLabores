@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actividad;
+use App\TipoActividad;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class ActividadController extends Controller
 
     public function index()
     {
-        return view('sistema.actividad.index');
+        $actividades = Actividad::orderBy('id', 'Asc')->paginate(10);
+        return view('sistema.actividad.index', compact('actividades') );
     }
 
     /**
@@ -49,6 +51,26 @@ class ActividadController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'titulo' => 'required|max:75',
+            'fechaActividad' => 'required',
+            'contenido' => 'required',
+            'tipoActividad_id' => 'required',
+            'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024',
+        ]);
+
+        $actividad = $request->all();
+
+        if($imagen = $request->file('imagen')) {
+            $rutaGuardarImg = 'imagen/';
+            $imagenActividad = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imagenActividad);
+            $actividad['imagen'] = "$imagenActividad";
+        }
+        Actividad::create($actividad);
+
+        return redirect()->route('actividad.index')
+                ->with('status_success','Actividad agregado correctamente');
     }
 
     /**
@@ -59,7 +81,8 @@ class ActividadController extends Controller
      */
     public function show(Actividad $actividad)
     {
-        //
+        $tiposActividad = TipoActividad::all('id', 'nombre');
+        return view('sistema.actividad.show', compact('actividad', 'tiposActividad'));
     }
 
     /**
@@ -70,6 +93,8 @@ class ActividadController extends Controller
      */
     public function edit(Actividad $actividad)
     {
+        $tiposActividad = TipoActividad::all('id', 'nombre');
+        return view('sistema.actividad.edit', compact('actividad', 'tiposActividad'));
         //
     }
 
@@ -82,7 +107,30 @@ class ActividadController extends Controller
      */
     public function update(Request $request, Actividad $actividad)
     {
-        //
+        $request->validate([
+            'titulo' => 'required|max:75',
+            'fechaActividad' => 'required',
+            'contenido' => 'required',
+            'tipoActividad_id' => 'required',
+            'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024',
+        ]);
+
+        $act = $request->all();
+
+        if($imagen = $request->file('imagen')) {
+            $rutaGuardarImg = 'imagen/';
+            $imagenActividad = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imagenActividad);
+            $act['imagen'] = "$imagenActividad";
+        }
+        else{
+            unset($act['imagen']);
+        }
+
+        $actividad->update($act);
+
+        return redirect()->route('actividad.index')
+                ->with('status_success','Actividad agregado correctamente');
     }
 
     /**
@@ -95,4 +143,6 @@ class ActividadController extends Controller
     {
         //
     }
+
+
 }
