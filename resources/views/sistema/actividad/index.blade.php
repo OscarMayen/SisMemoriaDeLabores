@@ -23,6 +23,8 @@
                         <th>ID</th>
                         <th>TITULO</th>
                         <th>FECHA</th>
+                        <th>ESTADO</th>
+                        <th>TIPO</th>
                         <th colspan="2">Acciones</th>
                     </tr>
                 </thead>
@@ -32,9 +34,16 @@
                         <td>{{ $actividad->id}}</td>
                         <td>{{ $actividad->titulo}}</td>
                         <td>{{ $actividad->fechaActividad}}</td>
+                        <td>{{ $actividad->estado}}</td>
+                        <td>{{ $actividad->tipoActividades->nombre }}</td>
                         <td width='10px'>
                             <a href="{{ route ('actividad.edit', $actividad->id) }}" class="btn btn-primary md-1">
                                 <i class="fas fa-pencil-alt"></i>
+                            </a>
+                        </td>
+                        <td width='10px'>
+                            <a  class="btn btn-primary md-1">
+                                Revision
                             </a>
                         </td>
                     </tr>

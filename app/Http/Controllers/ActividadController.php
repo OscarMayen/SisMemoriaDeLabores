@@ -23,7 +23,7 @@ class ActividadController extends Controller
 
     public function index()
     {
-        $actividades = Actividad::orderBy('id', 'Asc')->paginate(5);
+        $actividades = Actividad::orderBy('id', 'Asc')->paginate(10);
         return view('sistema.actividad.index', compact('actividades') );
     }
 
@@ -56,9 +56,18 @@ class ActividadController extends Controller
             'fechaActividad' => 'required',
             'contenido' => 'required',
             'tipoActividad_id' => 'required',
+            'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024',
         ]);
 
-        $actividad = Actividad::create($request->all());
+        $actividad = $request->all();
+
+        if($imagen = $request->file('imagen')) {
+            $rutaGuardarImg = 'imagen/';
+            $imagenActividad = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imagenActividad);
+            $actividad['imagen'] = "$imagenActividad";
+        }
+        Actividad::create($actividad);
 
         return redirect()->route('actividad.index')
                 ->with('status_success','Actividad agregado correctamente');
@@ -72,7 +81,8 @@ class ActividadController extends Controller
      */
     public function show(Actividad $actividad)
     {
-        //
+        $tiposActividad = TipoActividad::all('id', 'nombre');
+        return view('sistema.actividad.show', compact('actividad', 'tiposActividad'));
     }
 
     /**
@@ -102,9 +112,22 @@ class ActividadController extends Controller
             'fechaActividad' => 'required',
             'contenido' => 'required',
             'tipoActividad_id' => 'required',
+            'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024',
         ]);
 
-        $actividad->update($request->all());
+        $act = $request->all();
+
+        if($imagen = $request->file('imagen')) {
+            $rutaGuardarImg = 'imagen/';
+            $imagenActividad = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imagenActividad);
+            $act['imagen'] = "$imagenActividad";
+        }
+        else{
+            unset($act['imagen']);
+        }
+
+        $actividad->update($act);
 
         return redirect()->route('actividad.index')
                 ->with('status_success','Actividad agregado correctamente');
@@ -120,4 +143,6 @@ class ActividadController extends Controller
     {
         //
     }
+
+
 }

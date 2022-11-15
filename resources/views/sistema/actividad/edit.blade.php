@@ -18,7 +18,7 @@
             @endif
 
             <div class="card">
-                <form action="{{route('actividad.update', $actividad->id)}}" method="POST">
+                <form action="{{route('actividad.update', $actividad->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="card-header text-center">Nueva Actividad</div>
@@ -94,7 +94,7 @@
                                 id="contenido"
                                 value={{ $actividad->contenido }}
                              >
-                             <trix-editor
+                             <trix-editor style="height: 400px"
                                 class="form-control @error('contenido') is-invalid @enderror"
                                  input="contenido"></trix-editor>
 
@@ -104,6 +104,15 @@
                                 </span>
                                 <br>
                              @enderror
+                        </div>
+
+                         <!--Para ver la imagen seleccionada  -->
+                         <div class="form-group">
+                            <img src="/imagen/{{ $actividad->imagen}}" width="200px" id="imagenSeleccionada">
+                        </div>
+
+                        <div class="form-group">
+                            <input name="imagen" id="imagen" type="file" />
                         </div>
 
                         <div class=" form-group">
@@ -120,4 +129,17 @@
 
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js" integrity="sha512-/1nVu72YEESEbcmhE/EvjH/RxTg62EKvYWLG3NdeZibTCuEtW5M4z3aypcvsoZw03FAopi94y04GhuqRU9p+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
+    <script >
+        $(document).ready (function (e) {
+            $('#imagen').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    $('#imagenSeleccionada').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+            } );
+        });
+    </script>
 
