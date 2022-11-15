@@ -12,13 +12,13 @@ class Escuela extends Model
     public $timestamps = false;
 
     //Relacion de ono a muchos (inversa)
-    /*     public function facultad(){
-        return $this->belongsTo('App\Facultad','pk_facultad');
-    } */
+    public function facultades(){
+        return $this->belongsTo('App\Facultad','fk_facultad');
+    }
 
     //Obtener la categoria de la receta via FK
-    public function facultad(){
-        return $this->belongsTo(Facultad::class);
-    }
+    // public function facultad2(){
+    //     return $this->belongsTo(Facultad::class);
+    // }
 
 }

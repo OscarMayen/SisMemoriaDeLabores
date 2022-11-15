@@ -12,7 +12,7 @@ class Facultad extends Model
     public $timestamps = false;
 
     //Relacion de uno a muchos
-    public function Escuela(){
-        return $this->hasMany('App\Escuela','pk_escuela');
+    public function escuelas(){
+        return $this->hasMany('App\Escuela');
     }
 }
