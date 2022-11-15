@@ -70,8 +70,9 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-
+                  
+                        <a href="{{ route('login') }}">Iniciar Sesión</a>
+            
                         {{-- @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                         @endif --}}
@@ -94,12 +95,15 @@
    <div class="footer-main">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-1">
                     <div class="contact-info">
-                        <h5 class="nopadding">Contáctanos</h5>
-                        <p>Av. Principal XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXXXXXXXXXXX</p>
-                        <p><i class="fa fa-phone-square"></i>Phone : (503) xxxx-xxxx, xxxx-xxxx</p>
-                        <p><i class="fa fa-envelope"></i>E-mail : <a class="mail-link"> XXXXXXXXX@gmail.com</a></p>
+                        <h3 class="nopadding">Contáctanos</h3>
+                        <p>La Universidad de El Salvador es la institución de educación superior más grande y 
+                        <p>antigua de la República de El Salvador, y la única universidad pública del país.</p>
+                         <h4><p>Final, 25 Avenida Nte., San Salvador</p></h4>
+                        <p><i class="fa fa-phone-square"></i><h4>Contactos:</h4> Administración General	2235-3035
+                        <p>Administración Académica	2235-3235</p>
+                        <p><i class="fa fa-envelope"></i>E-mail : <a class="mail-link"> academica@fia.ues.edu.sv</a></p>
                     </div>
                 </div>
             </div>

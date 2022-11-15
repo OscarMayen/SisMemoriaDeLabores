@@ -9,16 +9,14 @@
                         @csrf
 
 
-                        <br>
-                        <br>
+                        <br><br>
                         <center><h1>MEMORIA DE LABORES</h1>
                         <br><br>
                         <div class="content">
                              <h2><img src="vendor/adminlte/dist/img/UESlogo.png"  alt="Cinque Terre" width="167" height="211"></h2>
                         </div>
                         </center>
-                        <br>
-                        <br>
+                        <br><br>
                         <center> 
                         <div class="form-group row">
                             <label for="email" class="col-md-3 col-form-label text-md-right"></label>
@@ -33,7 +31,6 @@
                                 @enderror
                             </div>
                         </div>
-                        <br> 
                         <div class="form-group row">
                             <label for="password" class="col-md-3 col-form-label text-md-right"></label>
 
