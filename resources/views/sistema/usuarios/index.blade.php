@@ -4,11 +4,14 @@
     
 @section('content_header')
    
-    <h1>Lista de usuarios</h1>
-    <a href="{{ route ('admin.usuarios.create') }}" class="btn btn-success">Crear Usuario</a>
+<h2 class="text-center mb-5">Listado de Usuarios</h2>
+
 @stop
 
 @section('content')
+
+
+
     @if (session('info'))
     <div class="alert alert-success">
         {{ session('info') }}

@@ -9,7 +9,9 @@
 <div class="conteiner mt-2">
     <div class="card justify-content-center">
         <div class="card-header">
+        <div class="d-flex flex-row-reverse">
             <a class="btn btn-success mb-4" href="{{ route('formEscuela')  }}">Agregar Escuela</a>
+            </div>
             <table class="table table-bordered table-stripied text-center">
                 <thead>
                     <tr>

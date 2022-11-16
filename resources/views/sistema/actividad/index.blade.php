@@ -16,15 +16,17 @@
 <div class="conteiner mt-2">
     <div class="card justify-content-center">
         <div class="card-header">
-            <a class="btn btn-success mb-4" href="{{ route('actividad.create') }}" >Nuevo</a>
+            <div class="d-flex flex-row-reverse">
+            <a class="btn btn-success mb-4" href="{{ route('actividad.create') }}" >Nueva Actividad</a>
+            </div>
             <table class="table table-bordered table-stripied text-center">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>TITULO</th>
                         <th>FECHA</th>
-                        <th>ESTADO</th>
                         <th>TIPO</th>
+                        <th>ESTADO</th>
                         <th colspan="2">Acciones</th>
                     </tr>
                 </thead>
@@ -34,8 +36,8 @@
                         <td>{{ $actividad->id}}</td>
                         <td>{{ $actividad->titulo}}</td>
                         <td>{{ $actividad->fechaActividad}}</td>
-                        <td>{{ $actividad->estado}}</td>
                         <td>{{ $actividad->tipoActividades->nombre }}</td>
+                        <td>{{ $actividad->estado}}</td>
                         <td width='10px'>
                             <a href="{{ route ('actividad.edit', $actividad->id) }}" class="btn btn-primary md-1">
                                 <i class="fas fa-pencil-alt"></i>

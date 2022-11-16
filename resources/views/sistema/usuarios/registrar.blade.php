@@ -3,20 +3,18 @@
 @section('title','Home')
 
 @section('content_header')
-<h1>Crear un nuevo usuario</h1>
+
 @stop
     
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Registro de nuevo usuario') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('admin.usuarios.store') }}">
                         @csrf
-
+                        <h3 class="text-center mb-5">Crear usuario</h3>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre:') }}</label>
 
@@ -69,8 +67,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Registrar') }}
+                                <button type="submit" class="btn btn-success">
+                                    {{ __('Guardar') }}
                                 </button>
                             </div>
                         </div>

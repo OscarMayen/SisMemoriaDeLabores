@@ -1,120 +1,132 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Memoria de labores</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+    <title>Memoria de labores</title>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
-            .full-height {
-                height: 100vh;
-            }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
 
-            .position-ref {
-                position: relative;
-            }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+    <!-- Styles -->
+    <style>
+        html,
+        body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+            height: 100vh;
+            margin: 0;
+        }
 
-            .content {
-                text-align: center;
-            }
+        .full-height {
+            height: 100vh;
+        }
 
-            .title {
-                font-size: 84px;
-            }
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+        .position-ref {
+            position: relative;
+        }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                  
-                        <a href="{{ route('login') }}">Iniciar Sesión</a>
-            
-                        {{-- @if (Route::has('register'))
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 84px;
+        }
+
+        .links>a {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .m-b-md {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-center position-ref full-height">
+        @if (Route::has('login'))
+        <div class="top-right links">
+            @auth
+            <a href="{{ url('/home') }}">Home</a>
+            # @else
+
+            <a href="{{ route('login') }}">Iniciar Sesión</a>
+
+            {{-- @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
-                        @endif --}}
-                    @endauth
-                </div>
-            @endif
+            @endif --}}
+            @endauth
+        </div>
+        @endif
 
+        <div class="content">
+            <div class="title m-b-md">
+                Memoria de Labores
+            </div>
             <div class="content">
-                <div class="title m-b-md">
-                    Memoria de Labores
-                </div>
-                <div class="content">
-                    <h2><img src="vendor/adminlte/dist/img/Minerva.png" class="img-circle" alt="Cinque Terre" width="200" height="400"></h2>
-                </div>
+                <h2><img src="vendor/adminlte/dist/img/Minerva.png" class="img-circle" alt="Cinque Terre" width="200" height="400"></h2>
             </div>
         </div>
-    </body>
-<div class="content">
-<footer id="footer" class="py-1 bg-inverse">
-   <div class="footer-main">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-1">
-                    <div class="contact-info">
-                        <h3 class="nopadding">Contáctanos</h3>
-                        <p>La Universidad de El Salvador es la institución de educación superior más grande y 
-                        <p>antigua de la República de El Salvador, y la única universidad pública del país.</p>
-                         <h4><p>Final, 25 Avenida Nte., San Salvador</p></h4>
-                        <p><i class="fa fa-phone-square"></i><h4>Contactos:</h4> Administración General	2235-3035
-                        <p>Administración Académica	2235-3235</p>
-                        <p><i class="fa fa-envelope"></i>E-mail : <a class="mail-link"> academica@fia.ues.edu.sv</a></p>
+    </div>
+    <div class="content">
+        <footer id="footer" class="py-1 bg-inverse">
+            <div class="footer-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact-info">
+                                <p>La Universidad de El Salvador es la institución de educación superior más grande y antigua de la República de El Salvador, y la única universidad pública del país.</p>
+                                <h4>
+                                    <p>Final, 25 Avenida Nte., San Salvador</p>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        <p><i class="fa fa-phone-square"></i>
+                            <h4>Contactos:</h4> Administración General 2235-3035
+                            <p>Administración Académica 2235-3235</p>
+                            <p><i class="fa fa-envelope"></i>E-mail : <a class="mail-link"> academica@fia.ues.edu.sv</a></p>
+                        </div> 
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="footer-foot">
+                <div class="container">
+                    <p>Copyright &copy; MEMORIA DE LABORES</p>
+                </div>
+            </div>
+        </footer>
     </div>
-    <div class="footer-foot">
-        <div class="container">
-                <p>Copyright &copy; 2022 - GRUPO 8 TESIS</p>
-        </div>
-    </div>
-</footer>
-</div>
+</body>
 
 </html>

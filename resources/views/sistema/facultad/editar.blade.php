@@ -3,7 +3,7 @@
 @section('title','Facultad Editar')
 
 @section('content')
-<div class="container mt-1">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-7 mt-1">
             <!--Mensaje flash-->
@@ -27,7 +27,8 @@
             <div class="card">
                 <form action="{{ route('editFacultad', $facultad->pk_facultad) }}" method="POST">
                 @csrf @method('PATCH')
-                    <div class="card-header text-center">MODIFICAR FACULTAD</div>
+                <h3><div class="card-header text-center">Editar facultad</div> </h3>
+                    
                     <div class="card-body">
                         <div class="row form-group">
                             <label for="" class="col-2">Codigo</label>
@@ -39,8 +40,9 @@
                             <input type="text" name="nombreFacultad" class="form-control col-md-9" 
                             value="{{ $facultad->nombreFacultad }}">
                         </div>
-                        <div class="row form-group">
-                            <button type="submit" class="btn btn-success col-md-9 offset-2">Modificar</button>
+                        <div class="form-group">
+                        <a class="btn btn-outline-primary" href="{{ route('listFacultad') }}">Regresar</a>
+                            <button type="submit" class="btn btn-success col-md-0">Editar</button>
                         </div>
                     </div>
                 </form>
@@ -48,5 +50,4 @@
         </div>
     </div>
 </div>
-<a class="btn btn-light btn-sm mt-2" href="{{ route('listFacultad') }}">&laquo Volver</a>
 @stop

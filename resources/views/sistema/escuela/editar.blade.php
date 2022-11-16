@@ -27,7 +27,7 @@
             <div class="card">
                 <form action="{{ route('editEscuela', $escuela->pk_escuela)}}" method="POST">
                 @csrf @method('PATCH')
-                    <div class="card-header text-center">MODIFICAR ESCUELA</div>
+                   <h3><div class="card-header text-center">Editar escuela</div></h3>
                     <div class="card-body">
 
                         <div class="form-group">
@@ -54,8 +54,9 @@
                             <input type="text" name="nombreEscuela" class="form-control col-md-9" 
                             value="{{ $escuela->nombreEscuela }}">
                         </div>
-                        <div class="row form-group">
-                            <button type="submit" class="btn btn-success col-md-9 offset-2">Guardar</button>
+                        <div class="form-group">
+                        <a class="btn btn-outline-primary" href="{{ route('listEscuela') }}">Regresar</a>
+                            <button type="submit" class="btn btn-success col-md-0">Guardar</button>
                         </div>
                     </div>
                 </form>
@@ -63,5 +64,4 @@
         </div>
     </div>
 </div>
-<a class="btn btn-light btn-sm mt-2" href="{{ route('listEscuela') }}">&laquo Volver</a>
 @stop

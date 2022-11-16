@@ -3,7 +3,7 @@
 @section('title','Tipo actividad crear')
 
 @section('content')
-<div class="container mt-1">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-7 mt-1">
             <!--Mensaje flash-->
@@ -29,7 +29,7 @@
                 @csrf
                 @method('PUT')
 
-                    <div class="card-header text-center">EDITAR TIPO ACTIVIDAD</div>
+                   <h3><div class="card-header text-center">Editar tipo de actividad</div></h3> 
                     <div class="card-body">
                         <div class="row form-group">
                             <label for="" class="col-2">ID</label>
@@ -41,8 +41,9 @@
                             <input type="text" name="nombre" value="{{$tipoActividad->nombre}}"
                             class="form-control col-md-9">
                         </div>
-                        <div class="row form-group">
-                            <button type="submit" class="btn btn-success col-md-9 offset-2">Guardar</button>
+                        <div class="form-group">
+                        <a class="btn btn-outline-primary" href="{{ route('tipoActividad.index') }}">Regresar</a>
+                            <button type="submit" class="btn btn-success col-md-0">Guardar</button>
                         </div>
                     </div>
                 </form>
@@ -50,5 +51,5 @@
         </div>
     </div>
 </div>
-<a class="btn btn-light btn-sm mt-2" href="{{ route('tipoActividad.index') }}">&laquo Volver</a>
+
 @stop
