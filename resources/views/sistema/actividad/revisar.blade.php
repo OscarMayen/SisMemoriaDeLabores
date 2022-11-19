@@ -18,10 +18,10 @@
             @endif
 
             <div class="card">
-                <form action="{{route('actividad.update', $actividad->id)}}" method="POST" enctype="multipart/form-data">
+                <form  enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <div class="card-header text-center">Nueva Actividad</div>
+                    <div class="card-header text-center">Revisar Actividad</div>
                     <div class="card-body">
                         <div class="row form-group">
                             <label for="id" class="col-2">ID</label>
@@ -33,7 +33,7 @@
 
                         <div class="row form-group">
                             <label for="titulo" class="col-2">Titulo</label>
-                            <input type="text"
+                            <input type="text" readonly
                                 name="titulo"
                                 class="form-control col-md-6 @error('titulo') is-invalid @enderror"
                                 id="titulo"
@@ -49,7 +49,7 @@
 
                         <div class="row form-group">
                             <label for="fechaActividad" class="col-2">Fecha de actividad</label>
-                            <input type="text"
+                            <input type="text" readonly
                                 name="fechaActividad"
                                 class="form-control col-md-6 @error('fechaActividad') is-invalid @enderror"
                                 value="{{$actividad->fechaActividad}}"
@@ -116,8 +116,15 @@
                         </div>
 
                         <div class=" form-group">
-                            <button type="submit" class="btn btn-success col-md-3 ">Guardar</button>
+                            <form action="{{ route('actividad.aprobar', $actividad->id) }}" method="POST" >
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-trash-alt"></i>APROBAR
+                                </button>
+                            </form>
                         </div>
+
                     </div>
                 </form>
             </div>

@@ -91,8 +91,10 @@ class ActividadController extends Controller
      * @param  \App\Actividad  $actividad
      * @return \Illuminate\Http\Response
      */
-    public function edit(Actividad $actividad)
+    public function edit($id)
     {
+        $actividad = Actividad::find($id);
+
         $tiposActividad = TipoActividad::all('id', 'nombre');
         return view('sistema.actividad.edit', compact('actividad', 'tiposActividad'));
         //
@@ -105,15 +107,10 @@ class ActividadController extends Controller
      * @param  \App\Actividad  $actividad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Actividad $actividad)
+    public function update(Request $request)
     {
-        $request->validate([
-            'titulo' => 'required|max:75',
-            'fechaActividad' => 'required',
-            'contenido' => 'required',
-            'tipoActividad_id' => 'required',
-            'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024',
-        ]);
+        $id = $request->id;
+        $actividad = Actividad::find($id);
 
         $act = $request->all();
 
@@ -128,9 +125,8 @@ class ActividadController extends Controller
         }
 
         $actividad->update($act);
-
         return redirect()->route('actividad.index')
-                ->with('status_success','Actividad agregado correctamente');
+                ->with('status_success','Actividad editada correctamente');
     }
 
     /**
@@ -144,5 +140,31 @@ class ActividadController extends Controller
         //
     }
 
+    public function revisar($id)
+    {
+        $actividad = Actividad::find($id);
+        $tiposActividad = TipoActividad::all('id', 'nombre');
+        return view('sistema.actividad.revisar', compact('actividad', 'tiposActividad'));
+    }
+
+    public function aprobar(Request $request)
+    {
+        $id = $request->id;
+        $actividad = Actividad::find($id);
+        $actividad->estado = 2;
+        $actividad->update();
+        return redirect()->route('actividad.index')
+                ->with('status_success','Actividad aprobada correctamente');
+    }
+
+    public function denegar(Request $request)
+    {
+        $id = $request->id;
+        $actividad = Actividad::find($id);
+        $actividad->estado = 3;
+        $actividad->update();
+        return redirect()->route('actividad.index')
+                ->with('status_success','Actividad aprobada correctamente');
+    }
 
 }

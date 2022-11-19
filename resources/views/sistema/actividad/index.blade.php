@@ -42,7 +42,7 @@
                             </a>
                         </td>
                         <td width='10px'>
-                            <a  class="btn btn-primary md-1">
+                            <a href="{{ route ('actividad.revisar', $actividad->id) }}" class="btn btn-primary md-1">
                                 Revision
                             </a>
                         </td>

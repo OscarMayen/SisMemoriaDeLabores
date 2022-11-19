@@ -54,7 +54,7 @@
                                 class="form-control col-md-6 @error('fechaActividad') is-invalid @enderror"
                                 value="{{$actividad->fechaActividad}}"
                             >
-                            @error('titulo')
+                            @error('fechaActividad')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
