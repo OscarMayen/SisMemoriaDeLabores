@@ -48,6 +48,7 @@
                         <td>{{ $actividad->id}}</td>
                         <td>{{ $actividad->titulo}}</td>
                         <td>{{ $actividad->fechaActividad}}</td>
+                        <td>{{ $actividad->tipoActividades->nombre }}</td>
                         <td>
                             @switch($actividad->estado)
                                 @case(1)
@@ -60,7 +61,6 @@
                                     <h6 class="estadoa">Terminado</h6>
                             @endswitch
                         </td>
-                        <td>{{ $actividad->tipoActividades->nombre }}</td>
                         <td width='10px'>
                             <a href="{{ route ('actividad.edit', $actividad->id) }}" class="btn btn-primary md-1">
                                 <i class="fas fa-pencil-alt"></i>
