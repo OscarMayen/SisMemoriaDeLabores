@@ -14,9 +14,11 @@ class Actividad extends Model
         'fechaActividad',
         'contenido',
         'tipoActividad_id',
+        'estado',
+        'imagen',
     ];
 
     public function tipoActividades(){
-        return $this->belongsTo('App\TipoActividad');
+        return $this->belongsTo('App\TipoActividad', 'tipoActividad_id');
     }
 }

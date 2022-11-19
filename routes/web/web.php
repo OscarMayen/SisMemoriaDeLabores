@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use admin\UsuarioController;
 use admin\RoleController;
+use App\Http\Controllers\ActividadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('usuarios', UsuarioController::class)->names('admin.usuarios');
 Route::resource('roles', RoleController::class)->names('admin.roles');
 Route::resource('tipoActividad', 'TipoActividadController')->names('tipoActividad');
-Route::resource('actividad', 'ActividadController')->names('actividad');
+//Route::resource('actividad', 'ActividadController')->names('actividad');
 //Facultad
 Route::get('guardarFormFacultad', 'FacultadController@verFormFacultad')->name('formFacultad');
 Route::post('saveFacultad', 'FacultadController@guardarFacultad')->name('saveFacultad');
@@ -45,4 +46,14 @@ Route::get('listarEscuela', 'EscuelaController@mostrarEscuelas')->name('listEscu
 Route::delete('eliminarEscuela/{id}','EscuelaController@eliminarEscuela')->name('deleteEscuela');
 Route::get('editarFormEscuela/{id}','EscuelaController@actualizarEscuela')->name('editFormEscuela');
 Route::patch('editarEscuela/{id}','EscuelaController@editarEscuela')->name('editEscuela');
- 
+
+//Actividad
+Route::get('actividad/index', [ActividadController::class, 'index'])->name('actividad.index');
+Route::get('actividad/create', [ActividadController::class, 'create'])->name('actividad.create');
+Route::post('actividad/store', [ActividadController::class, 'store'])->name('actividad.store');
+Route::get('actividad/edit/{id}', [ActividadController::class, 'edit'])->name('actividad.edit');
+Route::put('actividad/update', [ActividadController::class, 'update'])->name('actividad.update');
+
+Route::get('actividad/revisar/{id}', [ActividadController::class, 'revisar'])->name('actividad.revisar');
+Route::put('actividad/aprobar', [ActividadController::class, 'aprobar'])->name('actividad.aprobar');
+Route::put('actividad/denegar', [ActividadController::class, 'denegar'])->name('actividad.denegar');
