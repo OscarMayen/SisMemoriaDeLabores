@@ -3,7 +3,7 @@
 @section('title','Escuelas crear')
 
 @section('content')
-<div class="container mt-1">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-7 mt-1">
             <!--Mensaje flash-->
@@ -16,7 +16,7 @@
             <div class="card">
                 <form action="{{ route('saveEscuela')}}" method="POST">
                 @csrf
-                    <div class="card-header text-center">Crear nueva Escuela</div>
+                    <h3><div class="card-header text-center">Crear Escuela</div></h3>
                     <div class="card-body">
 
                         <div class="form-group">
@@ -68,8 +68,9 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="row form-group">
-                            <button type="submit" class="btn btn-success col-md-9 offset-2">Guardar</button>
+                        <div class="form-group">
+                        <a class="btn btn-outline-primary" href="{{ route('listEscuela') }}">Regresar</a>
+                            <button type="submit" class="btn btn-success col-md-0">Guardar</button>
                         </div>
                     </div>
                 </form>
@@ -77,5 +78,4 @@
         </div>
     </div>
 </div>
-<a class="btn btn-light btn-sm mt-2" href="{{ route('listEscuela') }}">&laquo Volver</a>
 @stop

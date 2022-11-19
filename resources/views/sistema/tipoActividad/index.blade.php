@@ -9,7 +9,9 @@
 <div class="conteiner mt-2">
     <div class="card justify-content-center">
         <div class="card-header">
-            <a class="btn btn-success mb-4" href="{{ route('tipoActividad.create') }}" >Nuevo</a>
+        <div class="d-flex flex-row-reverse">
+            <a class="btn btn-success mb-4" href="{{ route('tipoActividad.create') }}" >Nuevo tipo de actividad</a>
+            </div>
             <table class="table table-bordered table-stripied text-center">
                 <thead>
                     <tr>

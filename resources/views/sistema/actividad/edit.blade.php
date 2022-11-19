@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" integrity="sha512-5m1IeUDKtuFGvfgz32VVD0Jd/ySGX7xdLxhqemTmThxHdgqlgPdupWoSN8ThtUSLpAGBvA8DY2oO7jJCrGdxoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 @section('content')
-<div class="container mt-1">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12 mt-1">
             <!--Mensaje flash-->
@@ -21,7 +21,7 @@
                 <form action="{{route('actividad.update', $actividad->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <div class="card-header text-center">Nueva Actividad</div>
+                    <h3><div class="card-header text-center">Editar Actividad</div></h3>
                     <div class="card-body">
                         <div class="row form-group">
                             <label for="id" class="col-2">ID</label>
@@ -116,7 +116,8 @@
                         </div>
 
                         <div class=" form-group">
-                            <button type="submit" class="btn btn-success col-md-3 ">Guardar</button>
+                        <a  class="btn btn-outline-primary" href="{{route('actividad.index') }}">Regresar</a>
+                            <button type="submit" class="btn btn-success col-md-0 ">Guardar</button>
                         </div>
                     </div>
                 </form>
@@ -124,7 +125,6 @@
         </div>
     </div>
 </div>
-<a class="btn btn-light btn-sm mt-2" href="{{ route('actividad.index') }}">&laquo Volver</a>
 @stop
 
 @section('scripts')

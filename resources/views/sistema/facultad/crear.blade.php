@@ -3,14 +3,14 @@
 @section('title','Facultad crear')
 
 @section('content')
-<div class="container mt-1">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-7 mt-1">
             <!--Mensaje flash-->
             @if(session('claveGuardarFacultad'))
-                <div class="alert alert-success">
-                    {{ session('claveGuardarFacultad') }}
-                </div>
+            <div class="alert alert-success">
+                {{ session('claveGuardarFacultad') }}
+            </div>
             @endif
 
             <!--Validación de errores-->
@@ -26,40 +26,35 @@
 
             <div class="card">
                 <form action="{{ route('saveFacultad')}}" method="POST" novalidate>
-                @csrf
-                    <div class="card-header text-center">CREAR FACULTAD</div>
+                    @csrf
+                    <h2>
+                        <div class="card-header text-center">Crear facultad</div>
+                    </h2>
                     <div class="card-body">
 
                         <div class="row form-group">
                             <label for="" class="col-2">Codigo</label>
-                            <input  type="text" 
-                                    name="codigo" 
-                                    class="form-control col-md-9 @error('codigo') is-invalid @enderror" 
-                                    id="codigo"
-                                    value={{ old('titulo') }}>
+                            <input type="text" name="codigo" class="form-control col-md-9 @error('codigo') is-invalid @enderror" id="codigo" value={{ old('titulo') }}>
                             @error('codigo')
-                                <span class="invalid-feedback d-block" role="alert">
-                                    <strong>{{$message}}</strong>
-                                </span>
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{$message}}</strong>
+                            </span>
                             @enderror
                         </div>
 
                         <div class="row form-group">
                             <label for="" class="col-2">Nombre</label>
-                            <input  type="text" 
-                                    name="nombreFacultad" 
-                                    class="form-control col-md-9 @error('nombreFacultad') is-invalid @enderror" 
-                                    id="nombre"
-                                    value={{ old('nombreFacultad') }}>
+                            <input type="text" name="nombreFacultad" class="form-control col-md-9 @error('nombreFacultad') is-invalid @enderror" id="nombre" value={{ old('nombreFacultad') }}>
                             @error('nombreFacultad')
-                                <span class="invalid-feedback d-block" role="alert">
-                                    <strong>{{$message}}</strong>
-                                </span>
+                            <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{$message}}</strong>
+                            </span>
                             @enderror
                         </div>
 
-                        <div class="row form-group">
-                            <button type="submit" class="btn btn-success col-md-9 offset-2">Guardar</button>
+                        <div class="form-group">
+                            <a class="btn btn-outline-primary" href="{{ route('listFacultad') }}">Regresar</a>
+                            <button type="submit" class="btn btn-success col-md-0">Guardar</button>
                         </div>
                     </div>
                 </form>
@@ -67,5 +62,5 @@
         </div>
     </div>
 </div>
-<a class="btn btn-light btn-sm mt-2" href="{{ route('listFacultad') }}">&laquo Volver</a>
+
 @stop

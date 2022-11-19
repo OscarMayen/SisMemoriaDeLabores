@@ -28,15 +28,17 @@
 <div class="conteiner mt-2">
     <div class="card justify-content-center">
         <div class="card-header">
-            <a class="btn btn-success mb-4" href="{{ route('actividad.create') }}" >Nuevo</a>
+            <div class="d-flex flex-row-reverse">
+            <a class="btn btn-success mb-4" href="{{ route('actividad.create') }}" >Nueva Actividad</a>
+            </div>
             <table class="table table-bordered table-stripied text-center">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>TITULO</th>
                         <th>FECHA</th>
-                        <th>ESTADO</th>
                         <th>TIPO</th>
+                        <th>ESTADO</th>
                         <th colspan="2">Acciones</th>
                     </tr>
                 </thead>
