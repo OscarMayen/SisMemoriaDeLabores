@@ -5,6 +5,8 @@
 @section('styles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.css" integrity="sha512-CWdvnJD7uGtuypLLe5rLU3eUAkbzBR3Bm1SFPEaRfvXXI2v2H5Y0057EMTzNuGGRIznt8+128QIDQ8RqmHbAdg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" integrity="sha512-5m1IeUDKtuFGvfgz32VVD0Jd/ySGX7xdLxhqemTmThxHdgqlgPdupWoSN8ThtUSLpAGBvA8DY2oO7jJCrGdxoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--libreria de calendario para fechas -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 @section('content')
 <div class="container-fluid">
@@ -43,8 +45,8 @@
                             <label for="fechaActividad" class="col-2">Fecha de actividad</label>
                             <input type="text"
                                 name="fechaActividad"
-                                class="form-control col-md-6 @error('fechaActividad') is-invalid @enderror"
-                                id="fechaActividad"
+                                class="fecha-format form-control col-md-6 @error('fechaActividad') is-invalid @enderror"
+                                id="fechaActividad" placeholder="Dia/Mes/Año"
                                 value={{ old('fechaActividad') }}
                             >
                             @error('fechaActividad')
@@ -121,6 +123,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js" integrity="sha512-/1nVu72YEESEbcmhE/EvjH/RxTg62EKvYWLG3NdeZibTCuEtW5M4z3aypcvsoZw03FAopi94y04GhuqRU9p+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="{{ asset('js/flatpickr/lang-es.js') }}"></script>
     <script >
         $(document).ready (function (e) {
             //deshabilitando archivos adjuntos en trix editor
@@ -132,6 +136,17 @@
                 }
                 reader.readAsDataURL(this.files[0]);
             } );
-        });
+
+            //creando objeto para fecha
+            var fp = flatpickr(".fecha-format", {
+                allowInput: true,
+                altInput: true,
+                altFormat: "d/m/Y",
+                //altFormat: "d F, Y",
+                enableTime: false,
+                dateFormat: "Y-m-d",
+                "locale": "es",
+                }) 
+            });
     </script>
 
