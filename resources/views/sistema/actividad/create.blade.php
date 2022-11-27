@@ -123,6 +123,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
     <script >
         $(document).ready (function (e) {
+            //deshabilitando archivos adjuntos en trix editor
+            $('.trix-button--icon-attach').remove();
             $('#imagen').change(function(){
                 let reader = new FileReader();
                 reader.onload = (e) => {
