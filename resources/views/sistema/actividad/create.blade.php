@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" integrity="sha512-5m1IeUDKtuFGvfgz32VVD0Jd/ySGX7xdLxhqemTmThxHdgqlgPdupWoSN8ThtUSLpAGBvA8DY2oO7jJCrGdxoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--libreria de calendario para fechas -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <style>
         trix-editor {
             height: 180px !important;
@@ -109,8 +110,9 @@
                             <img id="imagenSeleccionada" style="max-height: 300px">
                         </div>
 
-                        <div class="form-group">
-                            <input name="imagen" id="imagen" type="file" />
+                        <div class="row form-group">
+                            <label for="formFile" class="form-label col-2">Imagen: </label>
+                            <input class="form-control col-6" name="imagen" id="imagen" type="file" accept="image/png, image/jpeg, image/jpg" />
                         </div>
 
                         <div class=" form-group">
@@ -146,13 +148,13 @@
                     Swal.fire('Atención!','Debe de colocar un contenido para la actividad','warning');
                 }
             });
-            $('#imagen').change(function(){
+            /*$('#imagen').change(function(){
                 let reader = new FileReader();
                 reader.onload = (e) => {
                     $('#imagenSeleccionada').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(this.files[0]);
-            } );
+            } );*/
 
             //creando objeto para fecha
             var fp = flatpickr(".fecha-format", {
