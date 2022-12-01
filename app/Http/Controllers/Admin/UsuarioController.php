@@ -62,10 +62,11 @@ class UsuarioController extends Controller
         User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'activo' => $data['activo'],
             'password' => Hash::make($data['password']),
         ]);
 
-        return redirect()->route('admin.usuarios.index')->with('info', 'El usuario se creó con éxito');
+        return redirect()->route('admin.usuarios.index')->with('info', 'El usuario '.$data['email'].' se creó con éxito');
     }
 
     /**
@@ -101,10 +102,14 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //cambio de estado
+        $usuario = User::findOrFail($id);
+        $usuario->activo = $request->has('activo');
+        $usuario->save();
+        //actualizacion de roles
         $user2 = User::where('id', $id)->first();
         $user2->roles()->sync($request->roles);
-        return redirect()->route('admin.usuarios.edit', $id)->with('info', 'Se asignaron los roles correctamente.');
+        return redirect()->route('admin.usuarios.index', $id)->with('info', 'Se actualizó el usuario y se asignaron los roles correctamente.');
     }
 
     /**

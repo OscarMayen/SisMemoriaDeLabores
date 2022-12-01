@@ -29,6 +29,10 @@
                         </label>
                     </div>
                 @endforeach
+                <div class="form-control col-md-6">
+                    <label for="activo">Usuario activo: &nbsp;</label>
+                    <input id="activo"name="activo" type="checkbox">
+                </div>
 
                 {!! Form::submit('Asignar rol', ['class' => 'btn btn-primary mt-2']) !!}
             {!! Form::close() !!}
