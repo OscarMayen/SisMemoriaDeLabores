@@ -28,7 +28,7 @@
                         <td>{{ $dato->pk_escuela }}</td>
                         <td>{{ $dato->codigo }}</td>
                         <td>{{ $dato->nombreEscuela }}</td>
-                        <th>{{ $dato->facultades->nombreFacultad}}</th>
+                        <td>{{ $dato->facultades->nombreFacultad}}</td>
                         <td width='10px'>
                             <a href="{{ route('editFormEscuela', $dato->pk_escuela) }}" class="btn btn-primary md-1">
                                 <i class="fas fa-pencil-alt"></i>
