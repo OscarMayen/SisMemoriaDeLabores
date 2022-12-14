@@ -23,7 +23,7 @@ class ActividadController extends Controller
 
     public function index()
     {
-        $actividades = Actividad::orderBy('id', 'Asc')->paginate(10);
+        $actividades = Actividad::orderBy('id', 'Asc')->paginate(5);
         return view('sistema.actividad.index', compact('actividades') );
     }
 
@@ -60,6 +60,7 @@ class ActividadController extends Controller
         ]);
 
         $actividad = $request->all();
+        $actividad['estado']=1;
 
         if($imagen = $request->file('imagen')) {
             $rutaGuardarImg = 'imagen/';
@@ -79,8 +80,10 @@ class ActividadController extends Controller
      * @param  \App\Actividad  $actividad
      * @return \Illuminate\Http\Response
      */
-    public function show(Actividad $actividad)
+    public function show($id)
     {
+        $actividad = Actividad::find($id);
+
         $tiposActividad = TipoActividad::all('id', 'nombre');
         return view('sistema.actividad.show', compact('actividad', 'tiposActividad'));
     }
