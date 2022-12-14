@@ -116,7 +116,7 @@
                         </div>
 
                         <div class=" form-group">
-                            <a  class="btn btn-outline-secondary" href="{{route('actividad.index') }}">Regresar</a>
+                            <a  class="btn btn-outline-primary" href="{{route('actividad.index') }}">Regresar</a>
                             <button type="submit" class="btn create btn-success col-md-0 ">Guardar</button>
                         </div>
                     </div>

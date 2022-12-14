@@ -10,7 +10,7 @@
     </style>
 
 @section('content')
-<div class="container mt-1">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12 mt-1">
             <!--Mensaje flash-->
@@ -24,7 +24,7 @@
                 <form  enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <div class="card-header text-center">Revisar Actividad</div>
+                    <h2><div class="card-header text-center">Revisar Actividad</div> </h2>
                     <div class="card-body">
                         <div class="row form-group">
                             <label for="id" class="col-2">ID</label>
@@ -92,8 +92,9 @@
                             <form action="{{ route('actividad.aprobar', $actividad->id) }}" method="POST" >
                                 @csrf
                                 @method('PUT')
+                                <a  class="btn btn-outline-primary" href="{{route('actividad.index') }}">Regresar</a>
                                 <button type="submit" class="btn btn-success">
-                                    <i class="fas fa-trash-alt"></i>APROBAR
+                                    <i class="fas fa-trash-alt"></i> Aprobar
                                 </button>
                             </form>
                         </div>
@@ -104,7 +105,7 @@
         </div>
     </div>
 </div>
-<a class="btn btn-light btn-sm mt-2" href="{{ route('actividad.index') }}">&laquo Volver</a>
+
 @stop
 
 @section('scripts')

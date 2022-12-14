@@ -9,12 +9,14 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h1 class="card-title">Descripción</h1>
+        <h3>Descripción</h3>
     </div>
-    <div class="card-body">
-        <p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
-           XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.</p>
-    </div>
+<div class="card-body">
+      <center> <h4>La memoria de labores anual es una herramienta que permite mantener informados a todos los miembros de la comunidad universitaria, 
+            en especial a los decanos, vicedecanos y miembros de la Asamblea General Universitaria, 
+            sobre las diferentes actividades, proyectos, etc. que se realizan en la institución.</h4>
+    </div> </center>  
+
 </div>
 @stop
 
