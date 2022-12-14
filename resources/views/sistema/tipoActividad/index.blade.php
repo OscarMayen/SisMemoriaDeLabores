@@ -71,7 +71,7 @@
     e.preventDefault();
     Swal.fire({
       title: '¿Estás seguro?',
-      text: "Esta categoria será eliminado permanentemente",
+      text: "Este tipo de actividad será eliminada permanentemente",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

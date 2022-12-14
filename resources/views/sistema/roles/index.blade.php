@@ -43,7 +43,7 @@
                                 </a>
                             </td>
                             <td width='10px'>
-                                <form action="{{ route('admin.roles.destroy', $role ) }}" method="POST">
+                                <form action="{{ route('admin.roles.destroy', $role ) }}" method="POST" class="eliminarRegistro">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">
@@ -60,4 +60,43 @@
         </div>
     </div>
 </div>
+@stop
+
+
+@section('ccs')
+<link rel="stylesheet" href="css/sweetalert2.min.css">
+@stop
+
+@section('js')
+<script src="{{ asset('static/js/sweetalert2.all.min.js') }}"></script>
+
+<!-- Mensaje de confirmacion flash -->
+@if (session('claveEliminar')=='OK')
+    <script>
+        Swal.fire(
+            '¡Eliminado!',
+            'Registro eliminado con éxito',
+            'success'
+        )
+    </script>
+@endif
+
+<script type="text/javascript">
+    $('.eliminarRegistro').submit(function(e){
+    e.preventDefault();
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "Este rol será eliminado permanentemente",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Sí, Eliminar!'
+    }).then((result) => {
+        if (result.value) {
+            this.submit();
+        }
+    })
+    });
+</script>
 @stop
