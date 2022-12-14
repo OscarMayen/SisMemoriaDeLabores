@@ -33,8 +33,11 @@
                     <label for="activo">Usuario activo: &nbsp;</la{{ $user->name }}bel>
                     <input id="activo"name="activo" type="checkbox" @if ($user->activo==1) checked @endif">
                 </div>
-
-                {!! Form::submit('Asignar rol', ['class' => 'btn btn-primary mt-2']) !!}
+                <hr>
+                <div class="form-group">
+                <a class="btn btn-outline-primary" href="{{ route('admin.usuarios.index') }}">Regresar</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="btn btn-success col-md-0" type="submit" value="Editar usuario">
+</div>
             {!! Form::close() !!}
         </div>
     </div>
