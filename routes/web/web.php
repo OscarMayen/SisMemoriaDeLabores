@@ -53,6 +53,7 @@ Route::get('actividad/create', [ActividadController::class, 'create'])->name('ac
 Route::post('actividad/store', [ActividadController::class, 'store'])->name('actividad.store');
 Route::get('actividad/edit/{id}', [ActividadController::class, 'edit'])->name('actividad.edit');
 Route::put('actividad/update', [ActividadController::class, 'update'])->name('actividad.update');
+Route::get('actividad/show/{id}', [ActividadController::class, 'show'])->name('actividad.show');
 
 Route::get('actividad/revisar/{id}', [ActividadController::class, 'revisar'])->name('actividad.revisar');
 Route::put('actividad/aprobar', [ActividadController::class, 'aprobar'])->name('actividad.aprobar');

@@ -15,13 +15,16 @@
 
     <style>
         .estadoa {
-            text-shadow: 0 0 0.2em #8F7;
+            text-shadow: 0 0 0.2em rgb(238, 241, 7), 0 0 0.2em rgb(238, 241, 7), 0 0 0.2em rgb(238, 241, 7);
         }
         .estadob {
-            text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87;
+            text-shadow: 0 0 0.2em rgb(11, 238, 87), 0 0 0.2em rgb(11, 238, 87), 0 0 0.2em rgb(11, 238, 87);
         }
         .estadoc {
-            text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F, 0 0 0.2em #87F;
+            text-shadow: 0 0 0.2em rgb(231, 9, 20), 0 0 0.2em rgb(231, 9, 20), 0 0 0.2em rgb(231, 9, 20);
+        }
+        .estadod {
+            text-shadow: 0 0 0.2em rgb(12, 12, 12), 0 0 0.2em rgb(10, 10, 10), 0 0 0.2em rgb(10, 10, 10);
         }
     </style>
 
@@ -52,18 +55,26 @@
                         <td>
                             @switch($actividad->estado)
                                 @case(1)
-                                    <h6 class="estadob">En proceso</h6>
+                                    <h6 class="estadoa">Revision</h6>
                                     @break
                                 @case(2)
-                                    <h6 class="estadoc">En Revisión</h6>
+                                    <h6 class="estadob">Aprobado</h6>
+                                    @break
+                                @case(3)
+                                    <h6 class="estadoc">Denegado</h6>
                                     @break
                                 @default
-                                    <h6 class="estadoa">Terminado</h6>
+                                    <h6 class="estadod">Terminado</h6>
                             @endswitch
                         </td>
                         <td width='10px'>
                             <a href="{{ route ('actividad.edit', $actividad->id) }}" class="btn btn-primary md-1">
                                 <i class="fas fa-pencil-alt"></i>
+                            </a>
+                        </td>
+                        <td width='10px'>
+                            <a href="{{ route ('actividad.show', $actividad->id) }}" class="btn btn-primary md-1">
+                                <i class="fas fa-eye"></i>
                             </a>
                         </td>
                         <td width='10px'>
@@ -75,6 +86,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $actividades->links() }}
         </div>
     </div>
 </div>
