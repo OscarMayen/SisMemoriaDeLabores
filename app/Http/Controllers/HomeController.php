@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $id_usuario = $this->user = Auth::id();
+        $rol = DB::table('users_has_roles')->where('user_id', '=',$id_usuario)->get();
+        if(count($rol) >0){
+            return view('home')->with("message", "");
+        }else{
+            return view('home')->with("message", "sinRol");
+        }
     }
 }

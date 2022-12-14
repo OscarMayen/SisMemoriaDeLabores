@@ -27,8 +27,16 @@
 
 @section('ccs')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
 @stop
 
 @section('js')
-    <script>console.log</script>
-@stop    
+<script src="{{ asset('static/js/sweetalert2.all.min.js') }}"></script>
+@if (($message) == 'sinRol')
+    <script>
+        $( document ).ready(function() {
+            Swal.fire('Información!','Su usuario no tiene asignado un Rol<br>Contacte al administrador para que le asigne uno.','warning')
+        });
+    </script>
+@endif
+@stop
