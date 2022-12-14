@@ -23,13 +23,13 @@
                     @method('PUT')
                     <h3><div class="card-header text-center">Editar Actividad</div></h3>
                     <div class="card-body">
-                        <div class="row form-group">
+                        <!--<div class="row form-group">
                             <label for="id" class="col-2">ID</label>
                             <input type="text"
                                 name="id"
                                 value="{{$actividad->id}}"
                                 class="form-control col-md-6" readonly>
-                        </div>
+                        </div>-->
 
                         <div class="row form-group">
                             <label for="titulo" class="col-2">Titulo</label>

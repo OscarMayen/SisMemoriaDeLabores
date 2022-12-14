@@ -31,11 +31,11 @@
 
                    <h3><div class="card-header text-center">Editar tipo de actividad</div></h3> 
                     <div class="card-body">
-                        <div class="row form-group">
+                        <!--<div class="row form-group">
                             <label for="" class="col-2">ID</label>
                             <input type="text" name="id" value="{{$tipoActividad->id}}"
                             class="form-control col-md-9" readonly>
-                        </div>
+                        </div>-->
                         <div class="row form-group">
                             <label for="" class="col-2">Nombre</label>
                             <input type="text" name="nombre" value="{{$tipoActividad->nombre}}"
