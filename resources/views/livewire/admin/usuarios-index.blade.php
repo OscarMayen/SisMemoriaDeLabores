@@ -22,6 +22,7 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Email</th>
+                            <th>Estado</th>
                             <th colspan="2">Acciones</th>
                         </tr>
                     </thead>
@@ -32,6 +33,13 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>
+                                @if ($user->activo == 1)
+                                    <button type="button" class="btn btn-success btn-sm">Habilitado</button>
+                                @else
+                                    <button type="label" class="btn btn-secondary btn-sm">Deshabilitado</button>
+                                @endif
+                            </td>
                             <td width='10px'>
                                 <a class="btn btn-primary" href="{{ route('admin.usuarios.edit', $user) }}">
                                     <i class="fas fa-pencil-alt"></i>

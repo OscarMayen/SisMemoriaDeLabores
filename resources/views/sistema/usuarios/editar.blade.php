@@ -29,6 +29,10 @@
                         </label>
                     </div>
                 @endforeach
+                <div class="form-control col-md-6">
+                    <label for="activo">Usuario activo: &nbsp;</la{{ $user->name }}bel>
+                    <input id="activo"name="activo" type="checkbox" @if ($user->activo==1) checked @endif">
+                </div>
 
                 {!! Form::submit('Asignar rol', ['class' => 'btn btn-primary mt-2']) !!}
             {!! Form::close() !!}

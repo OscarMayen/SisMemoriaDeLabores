@@ -56,7 +56,7 @@ class ActividadController extends Controller
             'fechaActividad' => 'required',
             'contenido' => 'required',
             'tipoActividad_id' => 'required',
-            'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024',
+            'imagen' => 'image|mimes:jpeg,png,svg|max:1024',
         ]);
 
         $actividad = $request->all();

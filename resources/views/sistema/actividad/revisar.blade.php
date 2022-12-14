@@ -5,6 +5,9 @@
 @section('styles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.css" integrity="sha512-CWdvnJD7uGtuypLLe5rLU3eUAkbzBR3Bm1SFPEaRfvXXI2v2H5Y0057EMTzNuGGRIznt8+128QIDQ8RqmHbAdg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css" integrity="sha512-5m1IeUDKtuFGvfgz32VVD0Jd/ySGX7xdLxhqemTmThxHdgqlgPdupWoSN8ThtUSLpAGBvA8DY2oO7jJCrGdxoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        trix-editor {height: 180px !important;max-height: 180px !important;verflow-y: auto !important;}
+    </style>
 
 @section('content')
 <div class="container mt-1">
@@ -39,12 +42,6 @@
                                 id="titulo"
                                 value="{{$actividad->titulo}}"
                             >
-                            @error('titulo')
-                                <span class="invalid-feedback d-block" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                <br>
-                            @enderror
                         </div>
 
                         <div class="row form-group">
@@ -54,19 +51,13 @@
                                 class="form-control col-md-6 @error('fechaActividad') is-invalid @enderror"
                                 value="{{$actividad->fechaActividad}}"
                             >
-                            @error('titulo')
-                                <span class="invalid-feedback d-block" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            <br>
-                        @enderror
 
                         </div>
 
                         <div class="form-group">
                             <label for="tipoActividad_id" class="col-2">Tipo de actividad</label>
 
-                            <select name="tipoActividad_id"
+                            <select name="tipoActividad_id" disabled
                                     class="form-control col-md-6"
                                     id="tipoActividad_id">
                                 <option value="">-- Seleccione --</option>
@@ -80,13 +71,6 @@
                             </select>
                         </div>
 
-                        @error('tipoActividad_id')
-                            <span class="invalid-feedback d-block" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            <br>
-                        @enderror
-
                         <div class="form-group">
                             <label for="contenido" class="col-2">Contenido</label>
                             <input type="hidden"
@@ -94,25 +78,14 @@
                                 id="contenido"
                                 value={{ $actividad->contenido }}
                              >
-                             <trix-editor style="height: 400px"
+                             <trix-editor id="trix_editor" contenteditable="true" style="height: 400px"
                                 class="form-control @error('contenido') is-invalid @enderror"
                                  input="contenido"></trix-editor>
-
-                             @error('contenido')
-                                <span class="invalid-feedback d-block" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                <br>
-                             @enderror
                         </div>
 
                          <!--Para ver la imagen seleccionada  -->
                          <div class="form-group">
-                            <img src="/imagen/{{ $actividad->imagen}}" width="200px" id="imagenSeleccionada">
-                        </div>
-
-                        <div class="form-group">
-                            <input name="imagen" id="imagen" type="file" />
+                            <img src="/imagen/{{ $actividad->imagen}}" width="200px" alt="{{ $actividad->imagen}}" id="imagenSeleccionada">
                         </div>
 
                         <div class=" form-group">
@@ -140,6 +113,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
     <script >
         $(document).ready (function (e) {
+            //eliminando toolbar trix-editor
+            $('#trix-toolbar-1').remove();
             $('#imagen').change(function(){
                 let reader = new FileReader();
                 reader.onload = (e) => {
